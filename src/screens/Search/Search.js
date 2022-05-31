@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import TrackSearchResults from "./TrackSearchResults";
-import Play from "./Play";
 import "./search.css";
 const spotifyApi = new SpotifyWebApi({
   clientId: "5723a0d88f2343a28f5d0264c5e2c16a",
@@ -25,7 +24,7 @@ export default function Search() {
     spotifyApi.searchTracks(search).then((res) => {
       if (cancel) return;
       setSearchResults(
-        res.body.tracks.items.slice(0, 6).map((track) => {
+        res.body.tracks.items.slice(0, 7).map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
             (smallest, image) => {
               if (image.height < smallest.height) return image;
@@ -34,6 +33,7 @@ export default function Search() {
             track.album.images[0]
           );
           return {
+            id: track.id,
             artist: track.artists[0].name,
             title: track.name,
             uri: track.uri,
@@ -62,7 +62,6 @@ export default function Search() {
           <TrackSearchResults track={track} key={track.uri} />
         ))}
       </div>
-      <Play />
     </div>
   );
 }

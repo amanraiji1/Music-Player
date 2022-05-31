@@ -2,14 +2,14 @@ import React from "react";
 import "./trackSearchResults.css";
 
 export default function TrackSearchResults({ track }) {
-  function handlePlay() {}
+  const url = "https://open.spotify.com/track/" + track.id;
   return (
-    <div className="search-box flex">
-      <div className="search-tile flex" onClick={handlePlay}>
+    <a className="search-box flex" href={url} target="_blank">
+      <div className="search-tile flex">
         <img src={track.albumUrl} alt="tile" />
         <h4>{track.title}</h4>
         <p>{track.artist}</p>
       </div>
-    </div>
+    </a>
   );
 }
