@@ -25,7 +25,7 @@ export default function Search() {
     spotifyApi.searchTracks(search).then((res) => {
       if (cancel) return;
       setSearchResults(
-        res.body.tracks.items.slice(0, 7).map((track) => {
+        res.body.tracks.items.slice(0, 6).map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
             (smallest, image) => {
               if (image.height < smallest.height) return image;
@@ -62,7 +62,7 @@ export default function Search() {
           <TrackSearchResults track={track} key={track.uri} />
         ))}
       </div>
-      <Play accessToken={code} />
+      <Play />
     </div>
   );
 }

@@ -1,13 +1,17 @@
 import React from "react";
-import SpotifyPlayer from "react-spotify-web-playback";
+import { FaForward, FaBackward } from "react-icons/fa";
+import { MdPlayArrow } from "react-icons/md";
+import "./play.css";
 
-export default function Play({ accessToken, trackUri }) {
-  if (!accessToken) return null;
+export default function Play({ trackUri }) {
   return (
-    <SpotifyPlayer
-      token={accessToken}
-      showSaveIcon
-      uris={trackUri ? [trackUri] : []}
-    />
+    <div className="bottom">
+      <input type="range" name="range" id="myProgressBar" min="0" max="100" />
+      <div>
+        <FaBackward className="icons" />
+        <MdPlayArrow className="icons" />
+        <FaForward className="icons" />
+      </div>
+    </div>
   );
 }

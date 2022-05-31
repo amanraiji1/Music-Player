@@ -27,13 +27,3 @@
   transform: scale(1.01);
   transition: all 0.2s ease;
 }
-
-.tile-btn {
-  position: absolute;
-  right: 20px;
-  margin-top: 25px;
-  color: white;
-  background-color: #e99072;
-  border: none;
-  border-radius: 80%;
-}

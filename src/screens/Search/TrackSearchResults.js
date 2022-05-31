@@ -9,7 +9,6 @@ export default function TrackSearchResults({ track }) {
         <img src={track.albumUrl} alt="tile" />
         <h4>{track.title}</h4>
         <p>{track.artist}</p>
-        <button className="tile-btn">+</button>
       </div>
     </div>
   );
